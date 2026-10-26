@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { StoreProvider, useStore } from './context/StoreContext';
 import { Navbar } from './components/Navbar';
 import { BannerCarousel } from './components/BannerCarousel';
-import { CategoryBar } from './components/CategoryBar';
 import { ProductCard } from './components/ProductCard';
 import { ProductModal } from './components/ProductModal';
 import { CartDrawer } from './components/CartDrawer';
@@ -91,10 +90,7 @@ const StoreContent: React.FC = () => {
       {/* 2. Hero Banner Carousel */}
       <BannerCarousel />
 
-      {/* 3. Flipkart-style Category Bar */}
-      <CategoryBar />
-
-      {/* 4. Customer Trust Bar (3-Day Delivery • No Exchange • Online Payment • 100% Luminexs) */}
+      {/* 3. Customer Trust Bar (3-Day Delivery • No Exchange • Online Payment • 100% Luminexs) */}
       <div className="max-w-7xl mx-auto px-3 sm:px-6 py-2 w-full">
         <div className="bg-white rounded-2xl border border-gray-200/90 shadow-sm p-3 sm:p-4 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
           <div className="flex items-center gap-2.5 sm:gap-3 p-1">
