@@ -1,0 +1,345 @@
+import { Product, Banner, StoreSettings } from '../types';
+
+export const DEFAULT_SETTINGS: StoreSettings = {
+  storeName: 'Ultra-Luminexs',
+  taglineEn: 'Powering Your Journey & Home | Direct Doorstep Delivery & Installation',
+  taglineTa: 'உங்கள் பயணம் மற்றும் வீட்டின் பேராற்றல் | இலவச டோர்ஸ்டெப் டெலிவரி & ஃபிட்டிங்',
+  whatsappNumber: '919876543210', // Easily updated by client in admin panel
+  phone: '+91 98765 43210',
+  address: 'No. 42, Trunk Road, Near Bus Stand',
+  city: 'Chennai / Tamil Nadu',
+  workingHours: '8:30 AM - 9:30 PM (All 7 Days Open)',
+  adminUsername: 'admin',
+  adminPassword: 'UltraBattery@2026',
+  adminEmail: 'owner@ultraluminexs.com',
+  adminPin: '1234', // Secondary quick PIN
+  desktopBannerNotice: 'Recommended Size: 1920 x 600 px (Aspect Ratio 16:5)',
+  mobileBannerNotice: 'Recommended Size: 1080 x 600 px (Aspect Ratio 16:9)',
+};
+
+export const DEFAULT_BANNERS: Banner[] = [
+  {
+    id: 'b-1',
+    title: 'ULTRA-LUMINEXS DURA-TUBE INVERTER BATTERIES',
+    subtitle: 'Heavy Duty 150Ah & 220Ah Tubular Batteries with 72 Months Warranty',
+    badge: 'FESTIVE OFFER - UP TO ₹2,500 OFF',
+    desktopImage: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1920&q=80',
+    mobileImage: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1080&q=80',
+    ctaText: 'View Inverter Batteries',
+    targetCategory: 'inverter',
+  },
+  {
+    id: 'b-2',
+    title: 'OLD BATTERY SCRAP EXCHANGE OFFER',
+    subtitle: 'Exchange your dead car or bike battery & get instant cash discount at your doorstep!',
+    badge: '100% GENUINE & FRESH STOCK',
+    desktopImage: 'https://images.unsplash.com/photo-1558441719-743d8c2e6f47?auto=format&fit=crop&w=1920&q=80',
+    mobileImage: 'https://images.unsplash.com/photo-1558441719-743d8c2e6f47?auto=format&fit=crop&w=1080&q=80',
+    ctaText: 'Explore Car Batteries',
+    targetCategory: 'car',
+  },
+  {
+    id: 'b-3',
+    title: 'ULTRA-LUMINEXS MOTO-PRO 2-WHEELER BATTERIES',
+    subtitle: 'Instant Push Start for Pulsar, Activa, Splendor, Royal Enfield & Apache',
+    badge: 'ZERO MAINTENANCE VRLA',
+    desktopImage: 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1920&q=80',
+    mobileImage: 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1080&q=80',
+    ctaText: 'Shop Bike Batteries',
+    targetCategory: 'bike',
+  }
+];
+
+export const DEFAULT_PRODUCTS: Product[] = [
+  // 1. CAR BATTERY 1
+  {
+    id: 'lum-car-35',
+    name: 'Ultra-Luminexs TurboDrive 35Ah Car Battery (ULTRA-35R)',
+    brand: 'Ultra-Luminexs',
+    category: 'car',
+    capacityAh: 35,
+    voltage: 12,
+    mrp: 5200,
+    price: 4300,
+    withOldBatteryPrice: 3400,
+    warrantyMonths: 55,
+    warrantyDetails: '30 Months Free Replacement + 25 Months Pro-Rata',
+    image: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=600&q=80',
+    additionalImages: [
+      'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=600&q=80',
+      'https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=600&q=80'
+    ],
+    inStock: true,
+    rating: 4.8,
+    reviewsCount: 312,
+    featured: true,
+    badge: 'Bestseller for Small Hatchbacks',
+    specs: {
+      batteryType: 'Maintenance Free (Silver Alloy Ca-Ca)',
+      terminalLayout: 'Right (+ Terminal Right)',
+      dimensions: '197mm x 129mm x 227mm',
+      maintenance: 'Zero Maintenance (Factory Charged)',
+      technology: 'High Crank Silver-Grid Technology'
+    },
+    compatibleVehicles: [
+      'Maruti Suzuki Swift (Petrol)',
+      'Maruti Alto 800 / K10',
+      'Maruti WagonR (Petrol)',
+      'Hyundai Santro',
+      'Tata Tiago (Petrol)',
+      'Maruti Celerio'
+    ],
+    descriptionEn: 'High-performance 35Ah battery engineered for quick starts and smooth city stop-and-go driving. Heat-tolerant silver alloy plates provide superior life under hot Indian climate conditions.',
+    descriptionTa: 'அதிக செயல்திறன் கொண்ட 35Ah பேட்டரி. இந்திய வெயில் மற்றும் சிட்டி டிராஃபிக் பயணங்களுக்கு ஏற்ற நீண்ட ஆயுள் கொண்ட சில்வர் அலாய் தகடுகள்.'
+  },
+
+  // 2. CAR BATTERY 2 (Diesel / Premium Hatch)
+  {
+    id: 'lum-car-45',
+    name: 'Ultra-Luminexs UltraPower 45Ah Car Battery (ULTRA-45L)',
+    brand: 'Ultra-Luminexs',
+    category: 'car',
+    capacityAh: 45,
+    voltage: 12,
+    mrp: 6900,
+    price: 5650,
+    withOldBatteryPrice: 4600,
+    warrantyMonths: 60,
+    warrantyDetails: '36 Months Free Replacement + 24 Months Pro-Rata',
+    image: 'https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=600&q=80',
+    inStock: true,
+    rating: 4.9,
+    reviewsCount: 184,
+    featured: true,
+    badge: 'Top Rated for Sedans & SUVs',
+    specs: {
+      batteryType: 'Sealed Maintenance Free',
+      terminalLayout: 'Left (+ Terminal Left)',
+      dimensions: '238mm x 129mm x 227mm',
+      maintenance: 'Zero Maintenance',
+      technology: 'Ultra-Dense Grid for High Cranking Amps'
+    },
+    compatibleVehicles: [
+      'Hyundai i20 (Petrol/Diesel)',
+      'Hyundai Creta (Petrol)',
+      'Kia Seltos (Petrol)',
+      'Honda City',
+      'Maruti Baleno / Brezza',
+      'Tata Altroz'
+    ],
+    descriptionEn: 'Engineered for today’s feature-packed cars with high electrical loads (touchscreens, dashcams, subwoofers). High CCA ensures instant ignition in all seasons.',
+    descriptionTa: 'டச் ஸ்கிரீன், ஆடியோ சிஸ்டம் கொண்ட நவீன கார்களுக்கு ஏற்ற 45Ah பேட்டரி. உடனடி ஸ்டார்ட் மற்றும் நீண்ட உழைப்பு உத்தரவாதம்.'
+  },
+
+  // 3. INVERTER TUBULAR BATTERY 150AH
+  {
+    id: 'lum-inv-150',
+    name: 'Ultra-Luminexs Dura-Tube 150Ah Tall Tubular Inverter Battery',
+    brand: 'Ultra-Luminexs',
+    category: 'inverter',
+    capacityAh: 150,
+    voltage: 12,
+    mrp: 18500,
+    price: 14200,
+    withOldBatteryPrice: 11800,
+    warrantyMonths: 66,
+    warrantyDetails: '36 Months Free Replacement + 30 Months Pro-Rata',
+    image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80',
+    inStock: true,
+    rating: 4.9,
+    reviewsCount: 520,
+    featured: true,
+    badge: 'Most Popular for Homes (2-3 BHK)',
+    specs: {
+      batteryType: 'Tall Tubular Heavy Duty',
+      terminalLayout: 'Standard L-Type Bolt',
+      dimensions: '502mm x 191mm x 440mm',
+      maintenance: 'Ultra-Low Maintenance (Ceramic Vent Plugs included)',
+      technology: 'Spine & Tube Casting High Pressure Die Technology'
+    },
+    compatibleVehicles: [
+      'Supports all 12V Inverters (Luminous, Microtek, Exide, Livguard, Sukam)',
+      'Backup: 3-4 Fans + 4-5 LED Bulbs + TV + Wi-Fi Router for 6 to 9 Hours'
+    ],
+    descriptionEn: 'The ultimate home inverter power solution. Built with thick spines and high-antimony lead alloy to withstand frequent long power cuts without deep-discharge damage.',
+    descriptionTa: 'வீடுகளுக்கு மிகவும் ஏற்ற 150Ah டால் டியூபுலர் பேட்டரி. 6 முதல் 9 மணி நேர பேக்அப். அடிக்கடி ஏற்படும் கரண்ட் கட் பிரச்சனையை சுலபமாக சமாளிக்கும்.'
+  },
+
+  // 4. INVERTER HEAVY DUTY 220AH
+  {
+    id: 'lum-inv-220',
+    name: 'Ultra-Luminexs MaxPower 220Ah Jumbo Tubular Heavy Battery',
+    brand: 'Ultra-Luminexs',
+    category: 'inverter',
+    capacityAh: 220,
+    voltage: 12,
+    mrp: 24500,
+    price: 19800,
+    withOldBatteryPrice: 16900,
+    warrantyMonths: 72,
+    warrantyDetails: '48 Months Free Replacement + 24 Months Pro-Rata',
+    image: 'https://images.unsplash.com/photo-1558441719-743d8c2e6f47?auto=format&fit=crop&w=600&q=80',
+    inStock: true,
+    rating: 5.0,
+    reviewsCount: 97,
+    featured: false,
+    badge: 'Extra Long Backup for Shops & Large Homes',
+    specs: {
+      batteryType: 'Jumbo Tall Tubular',
+      terminalLayout: 'Heavy Duty Terminal Post',
+      dimensions: '505mm x 190mm x 450mm',
+      maintenance: 'Low Maintenance with Float Indicators',
+      technology: 'Micro-porous Ceramic Filter Plugs'
+    },
+    compatibleVehicles: [
+      'Commercial Shops, Supermarkets, Clinics, Work-From-Home setups, 3-4 BHK Homes',
+      'Provides 10 to 14 Hours Long Backup'
+    ],
+    descriptionEn: 'Heavyweight champion for commercial shops, clinics, and large houses. 220Ah guarantees uninterrupted power for refrigeration, desktop computers, multiple fans, and lights.',
+    descriptionTa: 'கடைகள், கிளினிக்குகள் மற்றும் பெரிய வீடுகளுக்கான 220Ah ஜம்போ பேட்டரி. 10 முதல் 14 மணி நேரம் நீடிக்கும் இடைவிடாத பவர் பேக்கப்.'
+  },
+
+  // 5. TWO-WHEELER / BIKE 5AH
+  {
+    id: 'lum-bike-5',
+    name: 'Ultra-Luminexs MotoPro 5Ah VRLA Two-Wheeler Battery',
+    brand: 'Ultra-Luminexs',
+    category: 'bike',
+    capacityAh: 5,
+    voltage: 12,
+    mrp: 1750,
+    price: 1350,
+    withOldBatteryPrice: 1100,
+    warrantyMonths: 48,
+    warrantyDetails: '24 Months Free Replacement + 24 Months Pro-Rata',
+    image: 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=600&q=80',
+    inStock: true,
+    rating: 4.7,
+    reviewsCount: 420,
+    featured: true,
+    badge: '100% Spill Proof VRLA',
+    specs: {
+      batteryType: 'VRLA (Valve Regulated Lead Acid)',
+      terminalLayout: 'Standard Bike Terminal',
+      dimensions: '120mm x 60mm x 130mm',
+      maintenance: 'Completely Maintenance-Free (No Acid Refilling)',
+      technology: 'AGM (Absorbent Glass Mat) Separator'
+    },
+    compatibleVehicles: [
+      'Honda Activa 3G/4G/5G/6G',
+      'Hero Splendor Plus / Passion Pro (Self Start)',
+      'Bajaj Pulsar 150 / 180',
+      'TVS Jupiter / Scooty Zest',
+      'Yamaha FZ / Fascino'
+    ],
+    descriptionEn: 'High-cranking VRLA battery for scooters and motorcycles. AGM separator prevents acid leakage even on rough village roads and speed breakers. Self-start works with a feather touch.',
+    descriptionTa: 'ஆக்டிவா, ஸ்ப்ளெண்டர், பல்சர், ஜூப்பிட்டர் இருசக்கர வாகனங்களுக்கான 5Ah பேட்டரி. ஆசிட் கசிவு இல்லாத VRLA தொழில்நுட்பம், உடனடியாக செல்ஃப் ஸ்டார்ட் ஆகும்.'
+  },
+
+  // 6. TWO-WHEELER / ROYAL ENFIELD 14AH
+  {
+    id: 'lum-bike-14',
+    name: 'Ultra-Luminexs MotoPro Bullet Edition 14Ah Battery',
+    brand: 'Ultra-Luminexs',
+    category: 'bike',
+    capacityAh: 14,
+    voltage: 12,
+    mrp: 3400,
+    price: 2750,
+    withOldBatteryPrice: 2250,
+    warrantyMonths: 48,
+    warrantyDetails: '24 Months Free Replacement + 24 Months Pro-Rata',
+    image: 'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=600&q=80',
+    inStock: true,
+    rating: 4.8,
+    reviewsCount: 160,
+    featured: false,
+    badge: 'Heavy Cranking for 350cc & 500cc',
+    specs: {
+      batteryType: 'Heavy Duty VRLA',
+      terminalLayout: 'Side Terminal Post',
+      dimensions: '134mm x 89mm x 166mm',
+      maintenance: 'Maintenance Free',
+      technology: 'Vibration-Resistant Heavy Grid'
+    },
+    compatibleVehicles: [
+      'Royal Enfield Classic 350 / 500 (Self Start)',
+      'Royal Enfield Bullet Electra 350',
+      'Royal Enfield Thunderbird 350/500',
+      'KTM Duke 390 / Adventure'
+    ],
+    descriptionEn: 'Specially engineered to withstand high vibration and heavy piston recoil of Royal Enfield motorcycles. High CCA cranks the heavy engine effortlessly.',
+    descriptionTa: 'ராயல் என்ஃபீல்ட் புல்லட் மற்றும் 350cc பைக்குகளுக்கான பிரத்யேக 14Ah பேட்டரி. அதிக அதிர்வுகளைத் தாங்கும் வலிமையான கட்டமைப்பு.'
+  },
+
+  // 7. SOLAR C10 BATTERY 150AH
+  {
+    id: 'lum-solar-150',
+    name: 'Ultra-Luminexs Solura-X C10 Solar Deep Cycle Battery 150Ah',
+    brand: 'Ultra-Luminexs',
+    category: 'solar',
+    capacityAh: 150,
+    voltage: 12,
+    mrp: 20500,
+    price: 15900,
+    withOldBatteryPrice: 13200,
+    warrantyMonths: 60,
+    warrantyDetails: '60 Months 100% Free Replacement Warranty',
+    image: 'https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=600&q=80',
+    inStock: true,
+    rating: 4.9,
+    reviewsCount: 78,
+    featured: true,
+    badge: 'C10 Rated for Solar Panels',
+    specs: {
+      batteryType: 'Solar Deep Cycle C10 Tubular',
+      terminalLayout: 'Brass Bolt Terminals',
+      dimensions: '502mm x 191mm x 440mm',
+      maintenance: 'Minimal Water Loss Technology',
+      technology: 'Solar High Efficiency Positive Spine'
+    },
+    compatibleVehicles: [
+      'Solar Off-Grid and Hybrid Inverters',
+      'Solar Street Lighting, Farmhouse Solar Setups, Rooftop Solar 1kW - 5kW systems'
+    ],
+    descriptionEn: 'Certified C10 deep discharge rating specially built for rooftop solar panels. Fast charging acceptance even under cloudy or low sunlight conditions.',
+    descriptionTa: 'சோலார் பேனல்களுக்கு ஏற்ற C10 ரேட்டிங் கொண்ட 150Ah சோலார் பேட்டரி. மேகமூட்டமான காலங்களிலும் வேகமாக சார்ஜ் ஆகும் ஆற்றல்.'
+  },
+
+  // 8. COMMERCIAL / TRACTOR & TRUCK 88AH
+  {
+    id: 'lum-comm-88',
+    name: 'Ultra-Luminexs HeavyDuty 88Ah Commercial & Tractor Battery',
+    brand: 'Ultra-Luminexs',
+    category: 'commercial',
+    capacityAh: 88,
+    voltage: 12,
+    mrp: 11200,
+    price: 9100,
+    withOldBatteryPrice: 7200,
+    warrantyMonths: 36,
+    warrantyDetails: '24 Months Free Replacement + 12 Months Pro-Rata',
+    image: 'https://images.unsplash.com/photo-1592838064575-70ed626d3a0e?auto=format&fit=crop&w=600&q=80',
+    inStock: true,
+    rating: 4.8,
+    reviewsCount: 110,
+    featured: false,
+    badge: 'Tough Field Performance',
+    specs: {
+      batteryType: 'Heavy Commercial Cast-Grid',
+      terminalLayout: 'Standard Commercial Post',
+      dimensions: '305mm x 173mm x 225mm',
+      maintenance: 'Low Maintenance with Tough Polypropylene Casing',
+      technology: 'Shock-Resistant Glass Mat Separator'
+    },
+    compatibleVehicles: [
+      'Mahindra Tractors (All models)',
+      'John Deere Tractors',
+      'Sonalika / Massey Ferguson',
+      'Tata Ace / Ashok Leyland Dost',
+      'Eicher Light Commercial Trucks'
+    ],
+    descriptionEn: 'Built to survive rough farm terrains, mud, high heat, and heavy continuous vibration. Reliable cranking power for tractors and commercial transport vehicles.',
+    descriptionTa: 'டிராக்டர் மற்றும் லோடு வண்டிகளுக்கான 88Ah ஹெவி டியூட்டி பேட்டரி. கரடுமுரடான விவசாய நிலங்கள் மற்றும் மேடு பள்ளங்களைத் தாங்கும் அதிர்வு எதிர்ப்பு கட்டமைப்பு.'
+  }
+];
