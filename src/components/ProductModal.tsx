@@ -7,7 +7,7 @@ import {
   ShieldCheck, 
   Truck, 
   Wrench, 
-  RefreshCw, 
+  CreditCard, 
   CheckCircle2, 
   MessageCircle, 
   ShoppingCart,
@@ -16,7 +16,6 @@ import {
 
 export const ProductModal: React.FC = () => {
   const { selectedProduct, setSelectedProduct, addToCart, language, settings } = useStore();
-  const [withExchange, setWithExchange] = useState(true);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [isAddedAnimation, setIsAddedAnimation] = useState(false);
 
@@ -33,12 +32,12 @@ export const ProductModal: React.FC = () => {
     ...(selectedProduct.additionalImages || [])
   ].filter((img, idx, arr) => Boolean(img) && arr.indexOf(img) === idx);
 
-  const currentPrice = withExchange ? selectedProduct.withOldBatteryPrice : selectedProduct.price;
+  const currentPrice = selectedProduct.price;
   const discountPercent = Math.round(((selectedProduct.mrp - currentPrice) / selectedProduct.mrp) * 100);
   const totalSavings = selectedProduct.mrp - currentPrice;
 
   const handleAddToCart = () => {
-    addToCart(selectedProduct, withExchange);
+    addToCart(selectedProduct, false);
     setIsAddedAnimation(true);
     setTimeout(() => setIsAddedAnimation(false), 1200);
   };
@@ -160,26 +159,25 @@ export const ProductModal: React.FC = () => {
                     : `Total Savings: ₹${totalSavings.toLocaleString('en-IN')} off MRP!`}
                 </p>
 
-                {/* Old Battery Exchange Selector */}
-                <div 
-                  onClick={() => setWithExchange(!withExchange)}
-                  className="mt-3 p-3 rounded-xl bg-white border border-emerald-300 hover:border-emerald-400 transition cursor-pointer flex items-center justify-between shadow-sm select-none"
-                >
-                  <div className="flex items-center gap-2">
-                    <RefreshCw className={`w-4 h-4 ${withExchange ? 'text-emerald-600' : 'text-gray-400'}`} />
-                    <div>
-                      <p className="text-xs font-extrabold text-gray-900">
-                        {language === 'ta' ? 'பழைய பேட்டரி எக்ஸ்சேஞ்ச் செய்கிறீர்களா?' : 'With Old Battery Return?'}
-                      </p>
-                      <p className="text-[11px] text-gray-500">
-                        {language === 'ta'
-                          ? `(உடனடி தள்ளுபடி: ரூ. ${(selectedProduct.price - selectedProduct.withOldBatteryPrice).toLocaleString('en-IN')})`
-                          : `Instant scrap discount: ₹${(selectedProduct.price - selectedProduct.withOldBatteryPrice).toLocaleString('en-IN')}`}
-                      </p>
-                    </div>
+                {/* Delivery & Service Policy Box */}
+                <div className="mt-3 p-3 rounded-xl bg-slate-50 border border-slate-200/90 space-y-1.5 text-xs">
+                  <div className="flex items-center justify-between">
+                    <span className="flex items-center gap-1.5 font-bold text-gray-900">
+                      <Truck className="w-4 h-4 text-amber-600" />
+                      {language === 'ta' ? '3 நாட்களில் டோர்ஸ்டெப் டெலிவரி' : 'Delivery within 3 Days'}
+                    </span>
+                    <span className="text-[11px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded">
+                      {language === 'ta' ? 'இலவச டெலிவரி' : 'FREE Shipping'}
+                    </span>
                   </div>
-                  <div className={`w-10 h-6 flex items-center rounded-full p-1 transition-colors ${withExchange ? 'bg-emerald-600' : 'bg-gray-300'}`}>
-                    <div className={`bg-white w-4 h-4 rounded-full shadow-md transform transition-transform ${withExchange ? 'translate-x-4' : 'translate-x-0'}`}></div>
+                  <div className="flex items-center justify-between pt-1 border-t border-slate-200/60 text-[11px]">
+                    <span className="flex items-center gap-1 text-emerald-700 font-semibold">
+                      <CreditCard className="w-3.5 h-3.5" />
+                      {language === 'ta' ? 'ஆன்லைன் பேமெண்ட் ஏற்கப்படுகிறது' : 'Online Payment Accepted'}
+                    </span>
+                    <span className="text-gray-600 font-bold bg-gray-200 px-1.5 py-0.2 rounded text-[10px]">
+                      {language === 'ta' ? 'எக்ஸ்சேஞ்ச் தேவையில்லை' : 'No Old Battery Return Needed'}
+                    </span>
                   </div>
                 </div>
               </div>

@@ -30,9 +30,9 @@ export const DEFAULT_BANNERS: Banner[] = [
   },
   {
     id: 'b-2',
-    title: 'OLD BATTERY SCRAP EXCHANGE OFFER',
-    subtitle: 'Exchange your dead car or bike battery & get instant cash discount at your doorstep!',
-    badge: '100% GENUINE & FRESH STOCK',
+    title: 'EXPRESS 3-DAY DOORSTEP DELIVERY',
+    subtitle: 'Direct Factory Dispatch across Tamil Nadu • Online Payment Accepted (UPI / Cards)',
+    badge: '100% GENUINE ULTRA-LUMINEXS',
     desktopImage: 'https://images.unsplash.com/photo-1558441719-743d8c2e6f47?auto=format&fit=crop&w=1920&q=80',
     mobileImage: 'https://images.unsplash.com/photo-1558441719-743d8c2e6f47?auto=format&fit=crop&w=1080&q=80',
     ctaText: 'Explore Car Batteries',

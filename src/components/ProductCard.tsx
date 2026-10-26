@@ -9,7 +9,8 @@ import {
   ShoppingCart, 
   MessageCircle, 
   Check, 
-  RefreshCw,
+  Truck,
+  CreditCard,
   Eye
 } from 'lucide-react';
 
@@ -19,16 +20,15 @@ interface ProductCardProps {
 
 export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const { addToCart, setSelectedProduct, language, settings } = useStore();
-  const [withExchange, setWithExchange] = useState(true);
   const [isAddedAnimation, setIsAddedAnimation] = useState(false);
 
-  const displayPrice = withExchange ? product.withOldBatteryPrice : product.price;
+  const displayPrice = product.price;
   const discountPercent = Math.round(((product.mrp - displayPrice) / product.mrp) * 100);
   const savingsAmount = product.mrp - displayPrice;
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.stopPropagation();
-    addToCart(product, withExchange);
+    addToCart(product, false);
     setIsAddedAnimation(true);
     setTimeout(() => setIsAddedAnimation(false), 1200);
   };
@@ -123,22 +123,20 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             </span>
           </div>
 
-          {/* Old Battery Exchange Price Switcher (Crucial for Indian market) */}
-          <div 
-            onClick={(e) => {
-              e.stopPropagation();
-              setWithExchange(!withExchange);
-            }}
-            className="my-2 p-2 rounded-xl bg-emerald-50/70 border border-emerald-200/80 hover:bg-emerald-100/70 transition flex items-center justify-between text-xs cursor-pointer select-none"
-          >
-            <div className="flex items-center gap-1.5">
-              <RefreshCw className={`w-3.5 h-3.5 ${withExchange ? 'text-emerald-600 animate-spin-once' : 'text-gray-400'}`} />
-              <span className="font-semibold text-gray-800 text-[11px]">
-                {language === 'ta' ? 'பழைய பேட்டரி எக்ஸ்சேஞ்ச்' : 'With Old Battery Return'}
-              </span>
+          {/* Delivery & Service Policy Badges */}
+          <div className="my-2 p-2 rounded-xl bg-slate-50 border border-slate-200/90 flex flex-col gap-1 text-[11px]">
+            <div className="flex items-center gap-1.5 text-slate-800 font-semibold">
+              <Truck className="w-3.5 h-3.5 text-amber-600 flex-shrink-0" />
+              <span>{language === 'ta' ? '3 நாட்களில் டோர்ஸ்டெப் டெலிவரி' : 'Delivery within 3 Days'}</span>
             </div>
-            <div className={`w-9 h-5 flex items-center rounded-full p-0.5 transition-colors ${withExchange ? 'bg-emerald-600' : 'bg-gray-300'}`}>
-              <div className={`bg-white w-4 h-4 rounded-full shadow-md transform transition-transform ${withExchange ? 'translate-x-4' : 'translate-x-0'}`}></div>
+            <div className="flex items-center justify-between text-[10px] text-gray-500 font-medium">
+              <span className="flex items-center gap-1 text-emerald-700 font-bold">
+                <CreditCard className="w-3 h-3 text-emerald-600" />
+                {language === 'ta' ? 'ஆன்லைன் பேமெண்ட் வசதி' : 'Online Payment Accepted'}
+              </span>
+              <span className="bg-gray-200 text-gray-700 px-1.5 py-0.2 rounded font-bold">
+                {language === 'ta' ? 'எக்ஸ்சேஞ்ச் இல்லை' : 'No Exchange'}
+              </span>
             </div>
           </div>
 
@@ -159,8 +157,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             <p className="text-[11px] text-emerald-700 font-semibold mt-0.5 flex items-center gap-1">
               <Check className="w-3 h-3 text-emerald-600" />
               {language === 'ta'
-                ? `ரூ. ${savingsAmount.toLocaleString('en-IN')} சேமிக்கிறீர்கள் | இலவச ஃபிட்டிங்`
-                : `You save ₹${savingsAmount.toLocaleString('en-IN')} | Free Doorstep Fitting`}
+                ? `ரூ. ${savingsAmount.toLocaleString('en-IN')} சேமிப்பு • பிராண்ட் Luminexs அசல்`
+                : `You save ₹${savingsAmount.toLocaleString('en-IN')} • 100% Luminexs Genuine`}
             </p>
           </div>
         </div>

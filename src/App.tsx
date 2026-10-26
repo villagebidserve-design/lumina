@@ -7,8 +7,6 @@ import { ProductCard } from './components/ProductCard';
 import { ProductModal } from './components/ProductModal';
 import { CartDrawer } from './components/CartDrawer';
 import { AdminPortal } from './components/AdminPortal';
-import { VehicleFinder } from './components/VehicleFinder';
-import { PincodeChecker } from './components/PincodeChecker';
 import { Footer } from './components/Footer';
 import { createGeneralSupportLink } from './utils/whatsapp';
 import { 
@@ -16,7 +14,11 @@ import {
   ShoppingCart, 
   ChevronDown,
   RotateCcw,
-  Search
+  Search,
+  Truck,
+  CreditCard,
+  ShieldCheck,
+  Zap
 } from 'lucide-react';
 
 const StoreContent: React.FC = () => {
@@ -66,10 +68,10 @@ const StoreContent: React.FC = () => {
   // Sort products
   const sortedProducts = [...filteredProducts].sort((a, b) => {
     if (sortBy === 'price-low') {
-      return a.withOldBatteryPrice - b.withOldBatteryPrice;
+      return a.price - b.price;
     }
     if (sortBy === 'price-high') {
-      return b.withOldBatteryPrice - a.withOldBatteryPrice;
+      return b.price - a.price;
     }
     if (sortBy === 'rating') {
       return b.rating - a.rating;
@@ -92,14 +94,69 @@ const StoreContent: React.FC = () => {
       {/* 3. Flipkart-style Category Bar */}
       <CategoryBar />
 
-      {/* 4. Smart Vehicle Battery Finder */}
-      <VehicleFinder />
+      {/* 4. Customer Trust Bar (3-Day Delivery • No Exchange • Online Payment • 100% Luminexs) */}
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 py-2 w-full">
+        <div className="bg-white rounded-2xl border border-gray-200/90 shadow-sm p-3 sm:p-4 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+          <div className="flex items-center gap-2.5 sm:gap-3 p-1">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center flex-shrink-0 border border-amber-200/80">
+              <Truck className="w-4 h-4 sm:w-5 sm:h-5 text-amber-600" />
+            </div>
+            <div>
+              <h4 className="font-extrabold text-xs sm:text-sm text-gray-950">
+                {language === 'ta' ? '3 நாட்களில் டெலிவரி' : 'Delivery within 3 Days'}
+              </h4>
+              <p className="text-[10px] sm:text-xs text-gray-500 font-medium">
+                {language === 'ta' ? 'தமிழ்நாடு முழுவதும் விரைவு சேவை' : 'Express Doorstep Dispatch'}
+              </p>
+            </div>
+          </div>
 
-      {/* 5. Doorstep Express Delivery & Pincode Checker */}
-      <PincodeChecker />
+          <div className="flex items-center gap-2.5 sm:gap-3 p-1">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center flex-shrink-0 border border-blue-200/80">
+              <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" />
+            </div>
+            <div>
+              <h4 className="font-extrabold text-xs sm:text-sm text-gray-950">
+                {language === 'ta' ? 'எக்ஸ்சேஞ்ச் தேவையில்லை' : 'No Exchange Needed'}
+              </h4>
+              <p className="text-[10px] sm:text-xs text-gray-500 font-medium">
+                {language === 'ta' ? '100% புத்தம் புதிய பேட்டரி' : '100% Brand New Battery'}
+              </p>
+            </div>
+          </div>
 
-      {/* 6. Main Product Listing Section */}
-      <main id="products-section" className="flex-1 max-w-7xl mx-auto px-3 sm:px-6 py-6 sm:py-8 w-full">
+          <div className="flex items-center gap-2.5 sm:gap-3 p-1">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center flex-shrink-0 border border-emerald-200/80">
+              <CreditCard className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600" />
+            </div>
+            <div>
+              <h4 className="font-extrabold text-xs sm:text-sm text-gray-950">
+                {language === 'ta' ? 'ஆன்லைன் பேமெண்ட்' : 'Online Payment Accepted'}
+              </h4>
+              <p className="text-[10px] sm:text-xs text-gray-500 font-medium">
+                {language === 'ta' ? 'UPI / GPay / கார்டுகள் / NetBanking' : 'UPI, Cards & Net Banking'}
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2.5 sm:gap-3 p-1">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-purple-50 text-purple-700 flex items-center justify-center flex-shrink-0 border border-purple-200/80">
+              <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-purple-600" />
+            </div>
+            <div>
+              <h4 className="font-extrabold text-xs sm:text-sm text-gray-950">
+                {language === 'ta' ? 'Luminexs பிராண்ட் மட்டுமே' : 'Brand Luminexs Only'}
+              </h4>
+              <p className="text-[10px] sm:text-xs text-gray-500 font-medium">
+                {language === 'ta' ? 'நேரடி தயாரிப்பாளர் வாரண்டி' : 'Direct Factory Warranty'}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 5. Main Product Listing Section */}
+      <main id="products-section" className="flex-1 max-w-7xl mx-auto px-3 sm:px-6 py-4 sm:py-6 w-full">
         {/* Section Header & Filters */}
         <div className="bg-white p-4 sm:p-5 rounded-2xl border border-gray-200/90 shadow-sm mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
@@ -120,8 +177,8 @@ const StoreContent: React.FC = () => {
             </div>
             <p className="text-xs text-gray-500 mt-0.5">
               {language === 'ta'
-                ? 'நேரடி தயாரிப்பாளர் பில் & வாரண்டி • இலவச 30 நிமிட ஃபிட்டிங்'
-                : '100% Genuine with Manufacturer Warranty • Free Doorstep Installation'}
+                ? '100% அசல் Ultra-Luminexs தயாரிப்புகள் • 3 நாட்களில் டெலிவரி • ஆன்லைன் பேமெண்ட் வசதி'
+                : '100% Genuine Ultra-Luminexs Products • Delivery within 3 Days • Online Payment Accepted'}
             </p>
           </div>
 

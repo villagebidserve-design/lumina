@@ -13,20 +13,16 @@ export function createWhatsAppOrderLink(
   let grandTotal = 0;
 
   const itemsList = items.map((item, index) => {
-    const unitPrice = item.withOldBattery ? item.product.withOldBatteryPrice : item.product.price;
+    const unitPrice = item.product.price;
     const itemTotal = unitPrice * item.quantity;
     grandTotal += itemTotal;
 
     const mrpTotal = item.product.mrp * item.quantity;
     totalSavings += (mrpTotal - itemTotal);
 
-    const exchangeLabel = item.withOldBattery
-      ? (lang === 'ta' ? '🔄 பழைய பேட்டரி எக்ஸ்சேஞ்ச்' : '🔄 With Old Battery Exchange')
-      : (lang === 'ta' ? '⚡ புதிய பேட்டரி மட்டும்' : '⚡ Without Exchange');
-
     return `${index + 1}. *${sanitizeInput(item.product.name)}*
    • ${lang === 'ta' ? 'அளவு (Qty)' : 'Quantity'}: ${item.quantity}
-   • ${lang === 'ta' ? 'வகை' : 'Type'}: ${exchangeLabel}
+   • ${lang === 'ta' ? 'வகை' : 'Item'}: 100% Brand New Luminexs (No Exchange)
    • ${lang === 'ta' ? 'விலை' : 'Price'}: ₹${unitPrice.toLocaleString('en-IN')} x ${item.quantity} = *₹${itemTotal.toLocaleString('en-IN')}*`;
   }).join('\n\n');
 
@@ -50,15 +46,16 @@ ${itemsList}
 ----------------------------------------
 💰 *மொத்தத் தொகை (Total Payable): ₹${grandTotal.toLocaleString('en-IN')}*
 🎉 *மொத்த தள்ளுபடி சேமிப்பு: ₹${totalSavings.toLocaleString('en-IN')}*
-🚚 *டோர்ஸ்டெப் டெலிவரி & ஃபிட்டிங்: முற்றிலும் இலவசம் (FREE)*
+🚚 *டோர்ஸ்டெப் டெலிவரி: 3 நாட்களுக்குள் இலவச டெலிவரி (FREE)*
+💳 *கட்டணம்: ஆன்லைன் பேமெண்ட் (UPI/Cards) அல்லது கேஷ் ஆன் டெலிவரி*
 
 👤 *வாடிக்கையாளர் விவரங்கள் (Customer Info):*
 • பெயர்: ${safeName}
 • தொடர்பு எண்: ${safePhone}
-• டெலிவரி முகவரி: ${safeAddress}${safePincode ? `\n• பின்கோடு: ${safePincode} (30-45 Mins Express)` : ''}${safeVehicle ? `\n• வாகன மாடல்: ${safeVehicle}` : ''}
+• டெலிவரி முகவரி: ${safeAddress}${safePincode ? `\n• பின்கோடு: ${safePincode} (3 நாட்களில் டெலிவரி)` : ''}${safeVehicle ? `\n• வாகன மாடல்: ${safeVehicle}` : ''}
 ${safeNotes ? `• குறிப்பு: ${safeNotes}` : ''}
 
-தயவுசெய்து இந்த ஆர்டரை உறுதி செய்து டெலிவரி நேரத்தை தெரிவிக்கவும். நன்றி!`;
+தயவுசெய்து இந்த ஆர்டரை உறுதி செய்து டெலிவரி அனுப்பவும். நன்றி!`;
   } else {
     message = `Hello *${settings.storeName}*! 👋
 
@@ -70,15 +67,16 @@ ${itemsList}
 ----------------------------------------
 💰 *Grand Total Payable: ₹${grandTotal.toLocaleString('en-IN')}*
 🎉 *You Saved: ₹${totalSavings.toLocaleString('en-IN')} OFF MRP*
-🚚 *Doorstep Delivery & Installation: FREE*
+🚚 *Doorstep Delivery: FREE (Delivery within 3 Days)*
+💳 *Payment Mode: Online Payment Accepted (UPI / Cards / Net Banking) or COD*
 
 👤 *CUSTOMER DETAILS:*
 • Name: ${safeName}
 • Phone: ${safePhone}
-• Delivery Address: ${safeAddress}${safePincode ? `\n• Pincode: ${safePincode} (Express 45-Min)` : ''}${safeVehicle ? `\n• Vehicle Model: ${safeVehicle}` : ''}
+• Delivery Address: ${safeAddress}${safePincode ? `\n• Pincode: ${safePincode} (Delivery within 3 Days)` : ''}${safeVehicle ? `\n• Vehicle Model: ${safeVehicle}` : ''}
 ${safeNotes ? `• Special Note: ${safeNotes}` : ''}
 
-Please confirm this order and let me know the expected delivery time. Thank you!`;
+Please confirm this order and dispatch. Thank you!`;
   }
 
   return `https://wa.me/${cleanNumber}?text=${encodeURIComponent(message)}`;

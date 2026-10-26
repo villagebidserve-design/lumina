@@ -51,12 +51,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAdmin }) => {
           <div className="flex items-center gap-2 text-yellow-400 font-medium overflow-hidden text-ellipsis whitespace-nowrap">
             <span className="flex items-center gap-1 font-bold">
               <Zap className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400 animate-pulse" />
-              {language === 'ta' ? 'அவசர பேட்டரி உதவி:' : 'EXPRESS DELIVERY:'}
+              {language === 'ta' ? 'விரைவு டெலிவரி:' : 'EXPRESS DELIVERY:'}
             </span>
             <span className="text-gray-200 text-[11px] sm:text-xs">
               {language === 'ta' 
-                ? '30 நிமிடங்களில் உங்கள் இருப்பிடத்திற்கே இலவச டெலிவரி & ஃபிட்டிங்!' 
-                : '30-45 Mins Doorstep Delivery & Professional Installation!'}
+                ? '3 நாட்களில் பாதுகாப்பான டோர்ஸ்டெப் டெலிவரி • ஆன்லைன் பேமெண்ட் ஏற்கப்படுகிறது!' 
+                : 'Delivery within 3 Days • Online Payment Accepted • 100% Luminexs Brand!'}
             </span>
           </div>
 

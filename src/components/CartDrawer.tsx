@@ -6,11 +6,12 @@ import {
   Trash2, 
   Plus, 
   Minus, 
-  RefreshCw, 
+  CreditCard, 
   MessageCircle, 
   ShoppingBag, 
   Truck, 
-  ArrowRight
+  ArrowRight,
+  Zap
 } from 'lucide-react';
 
 export const CartDrawer: React.FC = () => {
@@ -20,7 +21,6 @@ export const CartDrawer: React.FC = () => {
     setIsCartOpen, 
     updateQuantity, 
     removeFromCart, 
-    toggleCartItemExchange, 
     cartTotal, 
     cartSavings, 
     settings, 
@@ -115,7 +115,7 @@ export const CartDrawer: React.FC = () => {
           ) : (
             <>
               {cart.map((item) => {
-                const unitPrice = item.withOldBattery ? item.product.withOldBatteryPrice : item.product.price;
+                const unitPrice = item.product.price;
                 const itemTotal = unitPrice * item.quantity;
 
                 return (
@@ -182,19 +182,14 @@ export const CartDrawer: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* Old Battery Toggle for this item */}
-                    <div 
-                      onClick={() => toggleCartItemExchange(item.product.id)}
-                      className="p-2 rounded-lg bg-emerald-50/70 border border-emerald-200/70 flex items-center justify-between text-[11px] cursor-pointer hover:bg-emerald-100/70 transition"
-                    >
-                      <div className="flex items-center gap-1.5 text-emerald-900">
-                        <RefreshCw className={`w-3.5 h-3.5 ${item.withOldBattery ? 'text-emerald-700' : 'text-gray-400'}`} />
-                        <span className="font-semibold">
-                          {language === 'ta' ? 'பழைய பேட்டரி எக்ஸ்சேஞ்ச்' : 'Old Battery Exchange'}
-                        </span>
-                      </div>
-                      <span className="font-black text-emerald-800">
-                        {item.withOldBattery ? 'YES (-₹' + (item.product.price - item.product.withOldBatteryPrice).toLocaleString('en-IN') + ')' : 'NO'}
+                    {/* Policy Badge for Item */}
+                    <div className="p-2 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-between text-[11px]">
+                      <span className="font-semibold text-slate-700 flex items-center gap-1.5">
+                        <Zap className="w-3.5 h-3.5 text-amber-500" />
+                        {language === 'ta' ? 'புதிய பேட்டரி (எக்ஸ்சேஞ்ச் இல்லை)' : '100% Brand New (No Exchange)'}
+                      </span>
+                      <span className="font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded text-[10px]">
+                        {language === 'ta' ? '3 நாட்களில் டெலிவரி' : '3-Day Delivery'}
                       </span>
                     </div>
                   </div>
@@ -207,12 +202,25 @@ export const CartDrawer: React.FC = () => {
         {/* Cart Bottom Checkout Area */}
         {cart.length > 0 && (
           <div className="p-4 bg-gray-50 border-t border-gray-200 space-y-3">
+            {/* Online Payment Accepted Banner */}
+            <div className="p-2.5 rounded-xl bg-emerald-50 border border-emerald-200/90 text-xs">
+              <div className="flex items-center gap-1.5 font-black text-emerald-950">
+                <CreditCard className="w-4 h-4 text-emerald-600" />
+                <span>{language === 'ta' ? 'ஆன்லைன் பேமெண்ட் ஏற்கப்படுகிறது' : 'Online Payment Accepted'}</span>
+              </div>
+              <p className="text-[11px] text-emerald-800 mt-0.5 font-medium">
+                {language === 'ta'
+                  ? 'GPay, PhonePe, Paytm, UPI, டெபிட்/கிரெடிட் கார்டுகள் அல்லது COD மூலம் செலுத்தலாம்.'
+                  : 'Pay via UPI (GPay / PhonePe / Paytm), Cards, Net Banking, or Cash on Delivery.'}
+              </p>
+            </div>
+
             {/* Delivery Form */}
             <div className="space-y-2 bg-white p-3 rounded-xl border border-gray-200 text-xs">
               <p className="font-bold text-gray-900 flex items-center gap-1.5">
                 <Truck className="w-4 h-4 text-emerald-600" />
                 <span>
-                  {language === 'ta' ? 'டெலிவரி விவரங்கள் (Delivery Info):' : 'Doorstep Delivery Info:'}
+                  {language === 'ta' ? 'டெலிவரி முகவரி (3 நாட்களில் டெலிவரி):' : 'Doorstep Delivery (Within 3 Days):'}
                 </span>
               </p>
 
@@ -261,7 +269,7 @@ export const CartDrawer: React.FC = () => {
             {/* Price Breakdown */}
             <div className="space-y-1.5 text-xs text-gray-600 pt-1">
               <div className="flex justify-between">
-                <span>{language === 'ta' ? 'டெலிவரி & ஃபிட்டிங் கட்டணம்:' : 'Doorstep Delivery & Installation:'}</span>
+                <span>{language === 'ta' ? 'டோர்ஸ்டெப் டெலிவரி (3 நாட்களுக்குள்):' : 'Doorstep Delivery (Within 3 Days):'}</span>
                 <span className="font-extrabold text-emerald-700 bg-emerald-100 px-1.5 py-0.2 rounded text-[10px]">
                   FREE
                 </span>

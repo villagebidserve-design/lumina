@@ -252,17 +252,15 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
 
   const cartTotal = cart.reduce((total, item) => {
-    const unitPrice = item.withOldBattery ? item.product.withOldBatteryPrice : item.product.price;
-    return total + unitPrice * item.quantity;
+    return total + item.product.price * item.quantity;
   }, 0);
 
   const cartSavings = cart.reduce((total, item) => {
-    const unitPrice = item.withOldBattery ? item.product.withOldBatteryPrice : item.product.price;
-    return total + (item.product.mrp - unitPrice) * item.quantity;
+    return total + (item.product.mrp - item.product.price) * item.quantity;
   }, 0);
 
   // Cart operations
-  const addToCart = (product: Product, withOldBattery: boolean = true) => {
+  const addToCart = (product: Product, withOldBattery: boolean = false) => {
     setCart((prevCart) => {
       const existing = prevCart.find((item) => item.product.id === product.id);
       if (existing) {

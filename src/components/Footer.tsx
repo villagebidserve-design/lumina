@@ -8,7 +8,7 @@ import {
   Clock, 
   ShieldCheck, 
   Truck, 
-  RefreshCw, 
+  CreditCard, 
   MessageCircle, 
   Lock 
 } from 'lucide-react';
@@ -31,10 +31,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin }) => {
             </div>
             <div>
               <h4 className="font-black text-xs sm:text-sm text-white uppercase">
-                {language === 'ta' ? 'இலவச டெலிவரி' : 'Express Delivery'}
+                {language === 'ta' ? '3 நாட்களில் டெலிவரி' : 'Delivery within 3 Days'}
               </h4>
               <p className="text-[11px] text-gray-400">
-                {language === 'ta' ? '30 நிமிடங்களில் உங்கள் கதவுக்கே' : 'Within 30-45 minutes'}
+                {language === 'ta' ? 'பாதுகாப்பான டோர்ஸ்டெப் டெலிவரி' : 'Safe Doorstep Delivery'}
               </p>
             </div>
           </div>
@@ -45,24 +45,24 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin }) => {
             </div>
             <div>
               <h4 className="font-black text-xs sm:text-sm text-white uppercase">
-                {language === 'ta' ? '100% அசல் பேட்டரி' : '100% Genuine Stock'}
+                {language === 'ta' ? 'Luminexs அசல் பேட்டரி' : '100% Luminexs Brand'}
               </h4>
               <p className="text-[11px] text-gray-400">
-                {language === 'ta' ? 'புதிய தயாரிப்பு & நிறுவன பில்' : 'Direct Manufacturer Warranty'}
+                {language === 'ta' ? 'நேரடி தயாரிப்பாளர் உத்தரவாதம்' : 'Direct Manufacturer Warranty'}
               </p>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-blue-400/20 text-blue-400 flex items-center justify-center flex-shrink-0">
-              <RefreshCw className="w-5 h-5" />
+              <CreditCard className="w-5 h-5" />
             </div>
             <div>
               <h4 className="font-black text-xs sm:text-sm text-white uppercase">
-                {language === 'ta' ? 'பழைய பேட்டரி தள்ளுபடி' : 'Best Scrap Value'}
+                {language === 'ta' ? 'ஆன்லைன் பேமெண்ட்' : 'Online Payment Accepted'}
               </h4>
               <p className="text-[11px] text-gray-400">
-                {language === 'ta' ? 'பழைய பேட்டரிக்கு உடனடி கேஷ்' : 'Instant exchange discount'}
+                {language === 'ta' ? 'UPI, கார்டுகள் (எக்ஸ்சேஞ்ச் இல்லை)' : 'UPI, Cards & COD (No Exchange)'}
               </p>
             </div>
           </div>

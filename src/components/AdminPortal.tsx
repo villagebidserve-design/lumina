@@ -508,8 +508,8 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ isOpen, onClose }) => 
       title: adminLang === 'ta' ? 'புதிய பேட்டரி சிறப்பு சலுகை' : 'New Ultra Battery Super Offer',
       subtitle:
         adminLang === 'ta'
-          ? 'பழைய பேட்டரி எக்ஸ்சேஞ்ச் சலுகை & 60 நிமிட இலவச பொருத்துதல்'
-          : 'Up to ₹2,500 Exchange Bonus + Free 60-Minute Express Fitting',
+          ? '3 நாட்களில் விரைவு டோர்ஸ்டெப் டெலிவரி & தொழில்முறை பொருத்துதல்'
+          : 'Express 3-Day Doorstep Delivery & Professional Installation',
       badge: 'FESTIVE SPECIAL',
       desktopImage: 'https://images.unsplash.com/photo-1558441719-743d8c2e6f47?auto=format&fit=crop&w=1920&q=80',
       mobileImage: 'https://images.unsplash.com/photo-1558441719-743d8c2e6f47?auto=format&fit=crop&w=1080&q=80',
@@ -922,7 +922,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ isOpen, onClose }) => 
 
                       <div>
                         <label className="block font-bold text-gray-700 mb-1">
-                          {t('Offer Price (Without Scrap Exchange) ₹ *', 'விற்பனை விலை ₹ *')}
+                          {t('Offer Price (Selling Price) ₹ *', 'விற்பனை விலை ₹ *')}
                         </label>
                         <input
                           type="number"
@@ -936,7 +936,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ isOpen, onClose }) => 
 
                       <div>
                         <label className="block font-bold text-gray-700 mb-1">
-                          {t('With Old Battery Exchange Price ₹', 'பழைய பேட்டரி எக்ஸ்சேஞ்ச் விலை ₹')}
+                          {t('Optional Reference Price ₹', 'கூடுதல் குறிப்பு விலை ₹')}
                         </label>
                         <input
                           type="number"

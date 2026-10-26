@@ -87,8 +87,8 @@ export const BannerCarousel: React.FC = () => {
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
                 <span>
                   {language === 'ta' 
-                    ? 'இலவச ஃபிட்டிங் & பழைய பேட்டரி எக்ஸ்சேஞ்ச்' 
-                    : 'Free Doorstep Fitting & Old Battery Exchange'}
+                    ? '3 நாட்களில் டெலிவரி • ஆன்லைன் பேமெண்ட் வசதி' 
+                    : 'Delivery within 3 Days • Online Payment Accepted'}
                 </span>
               </div>
             </div>
